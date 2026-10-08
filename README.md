@@ -1,2 +1,52 @@
-# bikestore-sql-analysis
-SQL analysis of a bike retailer (BikeStore) using T-SQL: sales, revenue, customers, products, and inventory across stores
+# BikeStore Sales Analysis (SQL)
+
+A SQL project that answers 23 business questions about a bike retailer (BikeStore) using **SQL Server (T-SQL)**: sales, revenue, customers, products, brands, staff, and inventory across multiple stores.
+
+## Business Questions Covered
+
+| Area | Questions |
+|---|---|
+| **Products & pricing** | Most expensive bike, least sold bike, discounted price of a product, full details of a product |
+| **Sales & revenue** | Total price per order, revenue per store, most sold category, children bicycles sold in the last 8 months of the data |
+| **Brands & categories** | Most liked brand, least liked category, categories with the most rejected orders |
+| **Customers** | Total customers, customer lookup, purchase history, order status, and shipped date for specific customers |
+| **Operations** | Number of stores, states, staff and managers, staff handling a specific order, pending orders, stock of the top brand per store |
+
+## Database Schema
+
+Two schemas, 9 tables:
+
+- **sales:** `customers`, `orders`, `order_items`, `staffs`, `stores`
+- **production:** `products`, `categories`, `brands`, `stocks`
+
+Order status codes: `1` Pending, `2` Processing, `3` Rejected, `4` Completed.
+
+## SQL Skills Demonstrated
+
+- Multi-table `JOIN`s (up to 5 tables), including `LEFT JOIN`
+- Aggregations with `GROUP BY`, `SUM`, `COUNT`, `COUNT(DISTINCT)`, `MAX`
+- Ranking with `TOP ... WITH TIES` and `ORDER BY`
+- Common Table Expressions (CTE) and subqueries
+- Date logic with `DATEADD`, relative to the latest order date in the data
+- Calculated fields (discounted revenue = `list_price * quantity * (1 - discount)`)
+- `CASE` expressions to decode order status
+
+## How "Most Liked" Is Defined
+
+"Most liked" brand and category are measured by **total quantity sold**, not by number of orders.
+
+## Files
+
+| File | Description |
+|---|---|
+| `BikeStore_Analysis.sql` | All 23 queries, commented and grouped by question |
+
+## How to Run
+
+1. Load the BikeStores database into SQL Server (SSMS or Azure Data Studio)
+2. Update the database name in the `USE` line if yours is different
+3. Run the queries one by one
+
+## Author
+
+**Ziad Amr** - [LinkedIn](www.linkedin.com/in/ziadamrr) 
