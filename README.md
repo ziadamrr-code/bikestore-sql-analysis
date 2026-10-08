@@ -31,6 +31,38 @@ Order status codes: `1` Pending, `2` Processing, `3` Rejected, `4` Completed.
 - Calculated fields (discounted revenue = `list_price * quantity * (1 - discount)`)
 - `CASE` expressions to decode order status
 
+## Key Findings
+
+| Metric | Result |
+|---|---|
+| Customers | **1,445** |
+| Stores / States | **3** stores across **3** states |
+| Staff / Managers | **10** staff, **4** managers |
+| Most expensive bike | **Trek Domane SLR 9 Disc - 2018** (11,999.99) |
+| Most sold category | **Cruisers Bicycles** (2,063 units) |
+| Least sold category | **Electric Bikes** (315 units) |
+| Most liked brand | **Electra** (2,612 units sold) |
+| Pending orders | **62** |
+| Children Bicycles sold in the last 8 months of the data | **18 units** |
+
+**Revenue per store** (rejected orders excluded)
+
+| Store | Revenue | Share |
+|---|---|---|
+| Baldwin Bikes | 5,138,474 | ~69% |
+| Santa Cruz Bikes | 1,560,539 | ~21% |
+| Rowlett Bikes | 781,523 | ~10% |
+
+**Categories with the most rejected orders:** Cruisers Bicycles (31), Mountain Bikes (22), Children Bicycles (13).
+
+### Observations
+
+- **Revenue is concentrated in one store.** Baldwin Bikes generates about 69% of total revenue, roughly 6.6x more than Rowlett Bikes.
+- **Cruisers lead in both sales and rejections.** The best-selling category also has the most rejected orders. Since it also has the highest volume, comparing rejection *rates* would be a useful next step.
+- **Electra dominates the brand ranking**, while Electric Bikes are the weakest category by units sold.
+- **Some products were never sold.** The least-sold query returns several products with zero units sold.
+- **Inventory vs. revenue:** Santa Cruz Bikes holds the most stock of the top brand (1,715 Electra units), while Baldwin Bikes generates most of the revenue. This is worth checking against where Electra actually sells.
+
 ## How "Most Liked" Is Defined
 
 "Most liked" brand and category are measured by **total quantity sold**, not by number of orders.
@@ -49,4 +81,4 @@ Order status codes: `1` Pending, `2` Processing, `3` Rejected, `4` Completed.
 
 ## Author
 
-**Ziad Amr** - [LinkedIn](www.linkedin.com/in/ziadamrr) 
+**Ziad Amr** - [LinkedIn](www.linkedin.com/in/ziadamrr)
